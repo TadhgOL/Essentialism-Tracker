@@ -138,6 +138,14 @@ function loadHistoryEntries(start = 0, limit = 21) {
         
         historyList.appendChild(entryElement);
     });
+
+    // Show/hide "See More" button based on whether there are more entries
+    if (entries.length > start + limit) {
+        seeMoreButton.style.display = 'block';
+        seeMoreButton.onclick = () => loadHistoryEntries(start + limit, limit);
+    } else {
+        seeMoreButton.style.display = 'none';
+    }
 }
 
 // Update date when page loads
