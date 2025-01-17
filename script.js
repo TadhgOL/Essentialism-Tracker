@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Load history entries if switching to history tab
             if (tabName === 'history') {
-                loadHistoryEntries();
+                loadHistoryEntries(0, 21);
             }
         });
     });
@@ -108,12 +108,20 @@ function saveJournal() {
     }
 }
 
-function loadHistoryEntries() {
+function loadHistoryEntries(start = 0, limit = 21) {
     const entries = JSON.parse(localStorage.getItem('journalEntries') || '[]');
     const historyList = document.querySelector('.history-list');
-    historyList.innerHTML = '';
+    const seeMoreButton = document.getElementById('seeMoreButton');
+    
+    // Clear the list if this is the first batch (start = 0)
+    if (start === 0) {
+        historyList.innerHTML = '';
+    }
 
-    entries.forEach(entry => {
+    // Get the slice of entries for this page
+    const entriesToShow = entries.slice(start, start + limit);
+    
+    entriesToShow.forEach(entry => {
         const entryElement = document.createElement('div');
         entryElement.className = 'history-entry';
         
