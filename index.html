@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essentialism Planner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="today">Today</button>
+            <button class="tab-btn" data-tab="history">History</button>
+        </div>
+
+        <div id="todayView" class="tab-content active">
+            <h1>Essentialism Planner</h1>
+            <div class="date-display">
+                <h2 id="currentDate"></h2>
+            </div>
+
+            <div class="journal-section">
+                <h3>1. What's on your mind?</h3>
+                <textarea id="whatThoughts" placeholder="Free write your thoughts..."></textarea>
+
+                <h3>2. So what does this mean?</h3>
+                <textarea id="soWhatThoughts" placeholder="Reflect on your thoughts..."></textarea>
+
+                <h3>3. Now what? - Task Planning</h3>
+                <div class="task-sections">
+                    <div class="task-group">
+                        <h4>Top Priority</h4>
+                        <textarea id="topPriorityTasks" placeholder="What's the single most important task for today?"></textarea>
+                    </div>
+
+                    <div class="task-group">
+                        <h4>Urgent & Essential</h4>
+                        <textarea id="urgentTasks" placeholder="Add your urgent tasks here..."></textarea>
+                    </div>
+
+                    <div class="task-group">
+                        <h4>Maintenance</h4>
+                        <textarea id="maintenanceTasks" placeholder="Add your maintenance tasks here..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <button id="saveButton" onclick="saveJournal()">Save Entry</button>
+        </div>
+
+        <div id="historyView" class="tab-content">
+            <div class="history-list"></div>
+            <button id="seeMoreButton" class="see-more">See More</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
